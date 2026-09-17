@@ -82,5 +82,47 @@ public class Login {
         }
     }
     
+    // now this will register the user
     
+    String registerUser(String username, String password, String cellPhoneNum, String name, String surname){
+        this.firstName=name;
+        this.lastName=surname;
+        
+        if(!checkUsername(username)){
+            return "Username is not correctly formatted; Please ensure that your username has an underscore and is maximum 5 characters.";
+            
+        }
+        if(!checkPasswordComplexity(password)){
+            return "Password is not correctly formatted; please ensure that the password containsat least 8 characters, a capital letter, a number and a special character.";
+            
+        }
+        if(!checkCellPhoneNumber(cellPhoneNum)){
+            return "Cell Phone number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
+        }
+        this.registeredUsername=username;
+        this.registeredPassword=password;
+        this.registeredCellNum=cellPhoneNum;
+        
+        return "User registered successfully.";
+    }
+    
+    //now this will log the user into the "account"
+    
+    boolean loginUser(String enteredUsername, String enteredPassword){
+        if(enteredUsername.equals(registeredUsername)&& enteredPassword.equals(registeredPassword)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    //return login status
+    
+    String returnLoginStatus(boolean isLoggedIn){
+        if(isLoggedIn){
+            return"Welcome "+ firstName+","+lastName+" it is great to see you.";
+        }else{
+            return "Username or Password is incorrect, please try again.";
+        }
+    }
 }
