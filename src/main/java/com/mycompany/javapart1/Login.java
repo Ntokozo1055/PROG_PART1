@@ -9,5 +9,16 @@ package com.mycompany.javapart1;
  * @author ntokozo
  */
 public class Login {
+    //Declarations
+    String registeredUsername;
+    String registeredPassword;
+    String registeredCellNum;
+    String firstName;
+    String lastName;
     
+    //Check username
+    
+    boolean checkUsername(String username){
+        return username.contains("_")&& username.length()<=5;
+    }
 }
