@@ -18,7 +18,7 @@ public class Login {
     
     //Check username
     
-    boolean checkUsername(String username){
+    public boolean checkUsername(String username){
         if(username.contains("_")&& username.length()<=5){
             return true;
         }else{
@@ -28,7 +28,7 @@ public class Login {
     
     //Check password complexity
     
-    boolean checkPasswordComplexity(String password){
+    public boolean checkPasswordComplexity(String password){
         boolean length=false;
         boolean capital=false;
         boolean number=false;
@@ -66,7 +66,7 @@ public class Login {
     
     //Check the cell phone number
     
-    boolean checkCellPhoneNumber(String cellPhoneNum){
+    public boolean checkCellPhoneNumber(String cellPhoneNum){
         if(cellPhoneNum.startsWith("+27")&& cellPhoneNum.length()<=10){
             
             int i=1;
@@ -84,7 +84,7 @@ public class Login {
     
     // now this will register the user
     
-    String registerUser(String username, String password, String cellPhoneNum, String name, String surname){
+   public String registerUser(String username, String password, String cellPhoneNum, String name, String surname){
         this.firstName=name;
         this.lastName=surname;
         
@@ -108,7 +108,7 @@ public class Login {
     
     //now this will log the user into the "account"
     
-    boolean loginUser(String enteredUsername, String enteredPassword){
+    public boolean loginUser(String enteredUsername, String enteredPassword){
         if(enteredUsername.equals(registeredUsername)&& enteredPassword.equals(registeredPassword)){
             return true;
         }else{
@@ -118,7 +118,7 @@ public class Login {
     
     //return login status
     
-    String returnLoginStatus(boolean isLoggedIn){
+     public String returnLoginStatus(boolean isLoggedIn){
         if(isLoggedIn){
             return"Welcome "+ firstName+","+lastName+" it is great to see you.";
         }else{

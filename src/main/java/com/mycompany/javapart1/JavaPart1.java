@@ -19,7 +19,7 @@ public class JavaPart1 {
         String cellPhoneNum;
         
         Scanner myInput=new Scanner(System.in);
-        Login loginSystem=new Login();
+        Login login=new Login();
         
         System.out.println("=====REGISTERATION=====");
         boolean isRegistered=false;
@@ -45,7 +45,7 @@ public class JavaPart1 {
             cellPhoneNum=myInput.nextLine();
             
             //call the register method from the login class and display a message
-            String registerMessage=loginSystem.registerUser(username, password, cellPhoneNum, name, surname);
+            String registerMessage=login.registerUser(username, password, cellPhoneNum, name, surname);
             System.out.println(registerMessage);
             
             if(registerMessage.equals("User registered successfully.")){
@@ -68,10 +68,10 @@ public class JavaPart1 {
             String loginPassword=myInput.nextLine();
             
             //call the login method
-            isLoggedIn=loginSystem.loginUser(loginUsername, loginPassword);
+            isLoggedIn=login.loginUser(loginUsername, loginPassword);
             
             //display the status method
-            System.out.println(loginSystem.returnLoginStatus(isLoggedIn));
+            System.out.println(login.returnLoginStatus(isLoggedIn));
             
             if(isLoggedIn==false){
                 System.out.println("Please try logging in again.");
