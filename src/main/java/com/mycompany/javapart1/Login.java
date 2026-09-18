@@ -56,7 +56,7 @@ public class Login {
              i++;       
         }
         
-        if(length && number && specialChar){
+        if(length && capital  &&  number && specialChar){
             return true;
         }else{
             return false;
