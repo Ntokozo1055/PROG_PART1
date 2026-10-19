@@ -13,11 +13,13 @@ import java.io.IOException;
  */
 public class Message {
     
-    String messageID;
-   int messageNum;
-   String recipient;
-   String messageText;
-   String messageHash;
+    // variables are individually public due to an error that occured in MessageText.
+    
+    public String messageID;
+   public int messageNum;
+   public String recipient;
+   public String messageText;
+   public String messageHash;
    
    //This method checks if the message ID is valid
    
@@ -70,5 +72,34 @@ public class Message {
        }
    }
    
+   // this method will store the message details to a json file
+   
+   public void storeMessage(){
+       // create a gson object. this makes the JSON file easy to read
+      
+       Gson gson= new GsonBuilder().setPrettyPrinting().create();
+       
+       //This will convert the message object into a JSON string format automatically.
+       
+       
+       String jsonString= gson.toJson(this);
+       
+       //Write the JSON string to a file named message.json
+       
+       
+       try {
+          
+           // "true" means it will add the new message to the file instead of deletingold ones.
+           
+           FileWriter writer= new FileWriter("Message.json", true);
+           
+           // this will write the new line
+           writer.write(jsonString+"  ");
+           
+           writer.close();
+       }catch (IOException e){
+           System.out.println("An error occurred while saving the message to JSON.");
+       }
+   }
     
 }
